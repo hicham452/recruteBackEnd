@@ -52,6 +52,7 @@ model offre_emploi {
   id                  Int               @id @default(autoincrement())
   nom                 String            @db.VarChar(100)
   description         String?
+  ville               String  
   date_publication    DateTime          @default(now())
   date_debut          DateTime          @db.Date
   nombre_vacances     Int
@@ -89,4 +90,10 @@ model recruteur {
   prenom       String         @db.VarChar(50)
   nom          String         @db.VarChar(50)
   offre_emploi offre_emploi[]
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
 }

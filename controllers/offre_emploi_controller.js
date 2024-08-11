@@ -30,6 +30,11 @@ getOfferEmploiByID: async (req, res) => {
 
 // Create a new job offer
 createOffreEmploi: async (req, res) => {
+
+  console.log(req.body)
+  console.log(req.file)
+
+  return res.status(201).json(req.body);
   try {
     const { nom, description, date_publication, date_debut, nombre_vacances, salaire_min, salaire_max, type_contrat, categorie_emploi_id, poste_id, organisation_id } = req.body;
     const newOffer = await prisma.offre_emploi.create({
